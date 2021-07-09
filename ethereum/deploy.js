@@ -1,6 +1,6 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const infuraUrl = "https://rinkeby.infura.io/v3/d42870b1087941f5bf9d2799a66ae36a";
-const mnemonic = 'spring arm add basket double reunion umbrella away library roof breeze park';
+import infuraUrl = '/secrets';
+const mnemonic = '/secrets';
 const Web3 = require("web3");
 const provider = new HDWalletProvider(mnemonic, infuraUrl);
 const web3 = new Web3(provider);
