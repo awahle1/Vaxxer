@@ -10,7 +10,14 @@ export const VAXXER_ABI = [
     signature: 'constructor'
   },
   {
-    inputs: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    inputs: [
+            {name: 'first', type: 'string'},
+            {name: 'last', type: 'string'},
+            {name: 'brand', type: 'string'},
+            {name: 'dose', type: 'string'},
+            {name: 'dob', type: 'uint256'},
+            {name: 'patient', type: 'address'},
+          ],
     name: 'addRecord',
     outputs: [],
     stateMutability: 'nonpayable',
@@ -40,9 +47,9 @@ export const VAXXER_ABI = [
     signature: '0x74f7f62f'
   },
   {
-    inputs: [ [Object] ],
+    inputs: [{ name: '', type: 'address' }],
     name: 'inSystem',
-    outputs: [ [Object] ],
+    outputs: [{name: '', type: 'bool'}],
     stateMutability: 'view',
     type: 'function',
     constant: true,
@@ -52,7 +59,7 @@ export const VAXXER_ABI = [
   {
     inputs: [],
     name: 'owner',
-    outputs: [ [Object] ],
+    outputs: [{ name: '', type: 'address' }],
     stateMutability: 'view',
     type: 'function',
     constant: true,
