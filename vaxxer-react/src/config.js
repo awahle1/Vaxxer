@@ -11,12 +11,12 @@ export const VAXXER_ABI = [
   },
   {
     inputs: [
-            {name: 'first', type: 'string'},
-            {name: 'last', type: 'string'},
-            {name: 'brand', type: 'string'},
-            {name: 'dose', type: 'string'},
-            {name: 'dob', type: 'uint256'},
-            {name: 'patient', type: 'address'},
+            {name: '', type: 'string'},
+            {name: '', type: 'string'},
+            {name: '', type: 'string'},
+            {name: '', type: 'string'},
+            {name: '', type: 'uint256'},
+            {name: '', type: 'address'},
           ],
     name: 'addRecord',
     outputs: [],
@@ -37,9 +37,9 @@ export const VAXXER_ABI = [
     signature: '0x4d238c8e'
   },
   {
-    inputs: [ [Object] ],
+    inputs: [ { name:'', type: 'address'} ],
     name: 'fullyVaxxed',
-    outputs: [ [Object] ],
+    outputs: [ { name:'', type: 'bool'} ],
     stateMutability: 'view',
     type: 'function',
     constant: true,
@@ -67,9 +67,14 @@ export const VAXXER_ABI = [
     signature: '0x8da5cb5b'
   },
   {
-    inputs: [ [Object] ],
+    inputs: [{ name:'', type: 'address'}],
     name: 'records',
-    outputs: [ [Object], [Object], [Object], [Object] ],
+    outputs: [
+      {name: 'first', type: 'string'},
+      {name: 'last', type: 'string'},
+      {name: 'brand', type: 'string'},
+      {name: 'dob', type: 'uint256'},
+     ],
     stateMutability: 'view',
     type: 'function',
     constant: true,
