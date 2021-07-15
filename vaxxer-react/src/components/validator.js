@@ -20,7 +20,7 @@ class Validator extends Component {
   onSubmit = async event => {
     event.preventDefault();
 
-    this.setState({ message: 'Writing data to the blockcahin...', loading:true, errorMessage: '' });
+    this.setState({ message: 'Writing data to the blockcahin. This may take a minute...', loading:true, errorMessage: '' });
 
     try{
       const accounts = await web3.eth.getAccounts();
@@ -39,7 +39,7 @@ class Validator extends Component {
       this.setState({ message: 'Successfully added record' });
       window.location.reload();
     } catch (err) {
-      this.setState({errorMessage: err.message});
+      this.setState({ errorMessage: err.message, message:'' });
     }
 
     this.setState({loading: false});
@@ -91,8 +91,8 @@ class Validator extends Component {
             />
           </Form.Group>
           <Message positive content={this.state.message} hidden={!(this.state.message)}/>
-          <Message error header="Oops!" content={this.state.errorMessage} />
-          <Form.Button onClick={this.onClick} loading={this.state.loading}>Submit</Form.Button>
+          <Message error header="Unable to Add Record" content={this.state.errorMessage} />
+          <Form.Button loading={this.state.loading}>Submit</Form.Button>
         </Form>
       </>
     )

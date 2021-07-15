@@ -27,7 +27,7 @@ export const VAXXER_ABI = [
     signature: '0x6bfa1b10'
   },
   {
-    inputs: [ [Object] ],
+    inputs: [{name: 'newValidator', type: 'address'}],
     name: 'addValidator',
     outputs: [],
     stateMutability: 'nonpayable',
