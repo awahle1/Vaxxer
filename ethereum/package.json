@@ -16,6 +16,7 @@
     "solc": "^0.8.6",
     "web3": "^1.4.0",
     "semantic-ui-react: ^2.0.3",
-    "react-router-dom: ^5.2.0"
+    "react-router-dom: ^5.2.0".
+    "semantic-ui-css: ^2.4.1"
   }
 }
