@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.owner-div {
+  padding-top: 10px;
+  color: #FFFFFF;
+}
+.input-group:focus-within label {
+  color: #FFFFFF !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

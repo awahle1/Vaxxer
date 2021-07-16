@@ -4,8 +4,6 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import web3 from './web3';
 
-import vaxxer from './vaxxer';
-
 import Owner from './components/owner';
 import Patient from './components/patient';
 import Validator from './components/validator';
@@ -14,7 +12,8 @@ import Verification from './components/verification';
 
 class App extends Component{
   componentDidMount() {
-      this.loadBlockchainData()
+      document.body.style.backgroundColor = "#58A8C1"
+      this.loadBlockchainData();
     }
 
   async loadBlockchainData() {

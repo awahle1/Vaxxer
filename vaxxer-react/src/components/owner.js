@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Form, Message } from 'semantic-ui-react';
+import { Form, Message, Container } from 'semantic-ui-react';
 import web3 from '../web3';
 import vaxxer from '../vaxxer';
+import '../App.css'
 
 class Owner extends Component {
   state = {
@@ -36,22 +37,25 @@ class Owner extends Component {
 
   render() {
     return(
-      <>
-        <h3>Add a Validator</h3>
-        <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
-          <Form.Group widths='equal'>
-            <Form.Input
-            fluid label='New Validator Address'
-            placeholder='address'
-            value={this.state.address}
-            onChange={event => this.setState({ address: event.target.value })}
-            />
-          </Form.Group>
-          <Message positive content={this.state.message} hidden={!(this.state.message)}/>
-          <Message error header="Unable to Add Record" content={this.state.errorMessage} />
-          <Form.Button loading={this.state.loading}>Submit</Form.Button>
-        </Form>
-      </>
+      <div class='owner-div'>
+        <Container>
+          <h2>Add a Validator</h2>
+          <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+            <Form.Group widths='equal'>
+              <Form.Input
+              class='input-group'
+              label='New Validator Address'
+              placeholder='address'
+              value={this.state.address}
+              onChange={event => this.setState({ address: event.target.value })}
+              />
+            </Form.Group>
+            <Message positive content={this.state.message} hidden={!(this.state.message)}/>
+            <Message error header="Unable to Add Record" content={this.state.errorMessage} />
+            <Form.Button disabled={!(web3.utils.isAddress(this.state.address))} inverted color='white' loading={this.state.loading}>Submit</Form.Button>
+          </Form>
+        </Container>
+      </div>
     )
   }
 }
