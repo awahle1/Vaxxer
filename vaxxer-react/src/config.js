@@ -1,4 +1,4 @@
-export const VAXXER_ADDRESS = '0xC330c8F508a0EF80e61c8F2bd94f81D468559651'
+export const VAXXER_ADDRESS = '0x27f4F450CB74202dB29505D43Cbe45DE1d4CB337'
 
 export const VAXXER_ABI = [
   {
@@ -15,7 +15,7 @@ export const VAXXER_ABI = [
             {name: '', type: 'string'},
             {name: '', type: 'string'},
             {name: '', type: 'string'},
-            {name: '', type: 'uint256'},
+            {name: '', type: 'string'},
             {name: '', type: 'address'},
           ],
     name: 'addRecord',
@@ -73,7 +73,7 @@ export const VAXXER_ABI = [
       {name: 'first', type: 'string'},
       {name: 'last', type: 'string'},
       {name: 'brand', type: 'string'},
-      {name: 'dob', type: 'uint256'},
+      {name: 'dob', type: 'string'},
      ],
     stateMutability: 'view',
     type: 'function',
@@ -82,9 +82,9 @@ export const VAXXER_ABI = [
     signature: '0x469e9067'
   },
   {
-    inputs: [ [Object] ],
+    inputs: [ {name: '', type:'address'} ],
     name: 'validators',
-    outputs: [ [Object] ],
+    outputs: [ {name: 'isValidator', type: 'bool'} ],
     stateMutability: 'view',
     type: 'function',
     constant: true,

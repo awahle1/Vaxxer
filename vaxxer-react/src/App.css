@@ -35,6 +35,10 @@
 .input-group:focus-within label {
   color: #FFFFFF !important;
 }
+.verification {
+  color: #FFFFFF;
+  padding-top: 20px;
+}
 
 @keyframes App-logo-spin {
   from {

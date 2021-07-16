@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import web3 from '../web3';
 import vaxxer from '../vaxxer';
+import { Container, Loader, Segment, Dimmer, Image } from 'semantic-ui-react';
 
 class Verification extends Component {
   componentDidMount() {
@@ -17,7 +18,7 @@ class Verification extends Component {
       const first = record[0];
       const last = record[1];
       const dob = record[3];
-      this.setState({first, last, dob, fullyVaxxed, inSystem});
+      this.setState({first, last, dob, fullyVaxxed, inSystem, loading:false});
     }
   }
 
@@ -27,16 +28,24 @@ class Verification extends Component {
     dob: '',
     fullyVaxxed: false,
     inSystem: false,
+    loading: true,
   }
 
   render() {
     return(
-      <div>
-        <h3>{this.state.first} {this.state.last}</h3>
-        <h4>{this.state.dob}</h4>
-        <h3 hidden={!(this.state.fullyVaxxed)}>Vaccinated</h3>
-        <h3 hidden={!((!this.state.fullyVaxxed)&&(this.state.inSystem))}>Not Fully Vaccinated</h3>
-        <h3 hidden={(this.state.inSystem)}>No Records Found</h3>
+      <div class='verification'>
+          <Dimmer active={this.state.loading} inverted>
+            <Loader size='massive' indeterminate>Getting vaccination info...</Loader>
+          </Dimmer>
+          <Container textAlign="center">
+            <h2>{this.state.first} {this.state.last}</h2>
+            <h3>Birthdate: {`${this.state.dob.substring(0,2)}/${this.state.dob.substring(2,4)}/${this.state.dob.substring(4)}`}</h3>
+            <h2 hidden={!(this.state.fullyVaxxed)}>Vaccinated</h2>
+            <h2 hidden={!((!this.state.fullyVaxxed)&&(this.state.inSystem))}>Not Fully Vaccinated</h2>
+            <h2 hidden={(this.state.inSystem)}>No Records Found</h2>
+          </Container>
+
+
       </div>
     )
   }

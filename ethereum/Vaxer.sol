@@ -12,7 +12,7 @@ contract Vaxer {
         string last;
         string brand;
         string[] doses;
-        uint dob;
+        string dob;
     }
 
     mapping(address => Record) public records;
@@ -28,7 +28,7 @@ contract Vaxer {
     }
 
     //Figure out dates
-    function addRecord(string memory first, string memory last, string memory brand, string memory dose, uint dob, address patient) public validatorsOnly {
+    function addRecord(string memory first, string memory last, string memory brand, string memory dose, string memory dob, address patient) public validatorsOnly {
         if(inSystem[patient]){
             Record storage record = records[patient];
             record.doses.push(dose);

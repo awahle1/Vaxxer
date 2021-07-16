@@ -20,15 +20,20 @@ class Validator extends Component {
   onSubmit = async event => {
     event.preventDefault();
     let dob = this.state.dob;
-    if(!((dob.length==10)&&(dob[2]==='/'&&dob[5]=='/')&&(parseInt(dob.substring(0,2))<=12)&&(parseInt(dob.substring(3,5))<=31)&&(parseInt(dob.substring(6))<=2021))){
+    const accounts = await web3.eth.getAccounts();
+    const isValidator = await vaxxer.methods.validators(accounts[0]).call();
+    if(!(isValidator)){
+      this.setState({errorMessage: 'Must be a validator to add records'});
+    }else if(!((dob.length===10)&&(dob[2]==='/'&&dob[5]==='/'))){
       this.setState({errorMessage: 'Birthdate must be in MM/DD/YYYY format'});
-    }else{
+    }else if (!((dob.substring(0,2)<=12)&&(dob.substring(3,5)<=31)&&(dob.substring(6)<=2021))) {
+      this.setState({errorMessage: 'Birthdate must be a valid date'});
+    }
+    else{
       dob = dob.replaceAll('/', '');
       this.setState({ message: 'Writing data to the blockcahin. This may take a minute...', loading:true, errorMessage: '' });
 
       try{
-        const accounts = await web3.eth.getAccounts();
-
         await vaxxer.methods.addRecord(
           this.state.firstName,
           this.state.lastName,
@@ -48,8 +53,6 @@ class Validator extends Component {
 
       this.setState({loading: false});
     }
-
-
   };
 
   render() {

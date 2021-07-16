@@ -5,11 +5,9 @@ const Web3 = require("web3");
 const provider = new HDWalletProvider(mnemonic, infuraUrl);
 const web3 = new Web3(provider);
 
-const { interface, bytecode } = require('./compile');
-
-// const compilerOutput = require("./compile");
-// const abi = compilerOutput.abi;
-// const bytecode = compilerOutput.evm.bytecode.object;
+const compilerOutput = require("./compile");
+const interface = compilerOutput.abi;
+const bytecode = compilerOutput.evm.bytecode.object;
 
 async function deploy() {
   const accounts = await web3.eth.getAccounts();

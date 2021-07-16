@@ -15,7 +15,7 @@ class Owner extends Component {
   onSubmit = async event => {
     event.preventDefault();
 
-    this.setState({ message: 'Adding Validator...', loading:true, errorMessage: '' });
+    this.setState({ message: 'Adding Validator. This may take a minute...', loading:true, errorMessage: '' });
 
     try{
       const accounts = await web3.eth.getAccounts();
