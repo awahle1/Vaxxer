@@ -42,13 +42,10 @@ class Owner extends Component {
           <h2>Add a Validator</h2>
           <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
             <Form.Group widths='equal'>
-              <Form.Input
-              class='input-group'
-              label='New Validator Address'
-              placeholder='address'
-              value={this.state.address}
-              onChange={event => this.setState({ address: event.target.value })}
-              />
+              <Form.Field>
+                <label style={{color:'white'}}>New Validator Address</label>
+                <input class='input-group' placeholder='address' value={this.state.address} onChange={event => this.setState({ address: event.target.value })}/>
+              </Form.Field>
             </Form.Group>
             <Message positive content={this.state.message} hidden={!(this.state.message)}/>
             <Message error header="Unable to Add Record" content={this.state.errorMessage} />

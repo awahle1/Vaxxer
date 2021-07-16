@@ -61,44 +61,32 @@ class Validator extends Component {
         <h2>Enter a New Vaccination Record</h2>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Group widths='equal'>
-            <Form.Input
-              fluid label='First name'
-              placeholder='First name'
-              value={this.state.firstName}
-              onChange={event => this.setState({ firstName: event.target.value })}
-            />
-            <Form.Input
-              fluid label='Last name'
-              placeholder='Last name'
-              value={this.state.lastName}
-              onChange={event => this.setState({ lastName: event.target.value })}
-            />
-            <Form.Input
-              fluid label='Birthdate'
-              placeholder='MM/DD/YYYY'
-              value={this.state.dob}
-              onChange={event => this.setState({ dob: event.target.value })}
-            />
+            <Form.Field>
+              <label style={{color:'white'}}>First name</label>
+              <input placeholder='First name' value={this.state.firstName} onChange={event => this.setState({ firstName: event.target.value })}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={{color:'white'}}>Last name</label>
+              <input placeholder='Last name' value={this.state.lastName} onChange={event => this.setState({ lastName: event.target.value })}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={{color:'white'}}>Birthdate</label>
+              <input placeholder='MM/DD/YYYY' value={this.state.dob} onChange={event => this.setState({ dob: event.target.value })}/>
+            </Form.Field>
           </Form.Group>
           <Form.Group widths='equal'>
-            <Form.Input
-              fluid label='Brand'
-              placeholder='Brand'
-              value={this.state.brand}
-              onChange={event => this.setState({ brand: event.target.value })}
-            />
-            <Form.Input
-              fluid label='Dose ID'
-              placeholder='AA0000'
-              value={this.state.doseId}
-              onChange={event => this.setState({ doseId: event.target.value })}
-            />
-            <Form.Input
-              fluid label={'Patient\'s Wallet Address'}
-              placeholder='address'
-              value={this.state.address}
-              onChange={event => this.setState({ address: event.target.value })}
-            />
+            <Form.Field>
+              <label style={{color:'white'}}>Brand</label>
+              <input placeholder='Brand' value={this.state.brand} onChange={event => this.setState({ brand: event.target.value })}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={{color:'white'}}>Dose ID</label>
+              <input placeholder='AA0000' value={this.state.doseId} onChange={event => this.setState({ doseId: event.target.value })}/>
+            </Form.Field>
+            <Form.Field>
+              <label style={{color:'white'}}>{'Patient\'s Wallet Address'}</label>
+              <input placeholder='address' value={this.state.address} onChange={event => this.setState({ address: event.target.value })}/>
+            </Form.Field>
           </Form.Group>
           <Message positive content={this.state.message} hidden={!(this.state.message)}/>
           <Message error header="Unable to Add Record" content={this.state.errorMessage} />
