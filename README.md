@@ -7,11 +7,11 @@ The workflow is very simple. Take a college for example. The person in charge of
 Steps to get started:
 1. Clone the repository
 2. Ensure that you have the chrome extension "Metamask" installed and copy your mnemonic to your clipboard
-3. Paste the mneumonic in the mneumonic string in /ethereum/deploy.js
-4. Navigate to the /ethereum directory
-5. Run run the command npm install
+3. Go to your code editor and paste the mneumonic in the mneumonic string in /ethereum/deploy.js
+4. Go to your command line tool and navigate to the /ethereum directory
+5. Run run the command "node npm install"
 6. Run the commands "node compile.js" and "node deploy.js"
-7. After running these, copy the address logged by the deploy command and paste it into the VAXXER_ADDRESS string in /vaxxer-react/config.js
+7. After running these, copy the second address logged by the deploy command and paste it into the VAXXER_ADDRESS string in /vaxxer-react/src/config.js
 8. Go back one directory and navigate to the /vaxxer-react directory
 9. Run "npm start"
 10. Navigate to the "Validator" page to begin adding records 
