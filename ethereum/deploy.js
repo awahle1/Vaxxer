@@ -23,7 +23,6 @@ async function deploy() {
     });
   provider.engine.stop();
   console.log("deployed to", contract.options.address);
-  console.log(interface);
 }
 
 deploy();
